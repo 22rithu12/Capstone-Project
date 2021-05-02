@@ -199,30 +199,28 @@ class Goal():
         x_collision = (math.fabs(self.x - other.x) * 2) < (self.width + other.width)
         y_collision = (math.fabs(self.y - other.y) * 2) < (self.height + other.height)
         return (x_collision and y_collision)
-            
 
-game = Game(700, 500)
 
 #forming componets of the game
+game = Game(700, 500)
+
 player_1 = Player(-250 , 0, "player1.gif", "light yellow", 95, 95)
 
 player_2 = Player(250 , 0, "player2.gif", "light green", 95, 95)
 
 puck = Puck(0 , 0, "puck.gif", "red", 20, 20)
 
-goal_player_1 = Goal(-320, 0, "goal1.gif", "saddlebrown", 60, 100)
-goal_player_2 = Goal(322, 0, "goal2.gif", "saddlebrown", 60, 100)
+goal_player_1 = Goal(-320, 0, "goal1.gif", "saddlebrown", 30, 90)
+goal_player_2 = Goal(322, 0, "goal2.gif", "saddlebrown", 30, 90)
 
 
 sprites = [player_1, player_2, puck]
 goals = [goal_player_1, goal_player_2]
 players = [player_1, player_2]
 
-
 #Score
 score_player_1 = 0 
 score_player_2 = 0
-
 
 #keyboard binding
 wn.listen()
@@ -236,7 +234,6 @@ wn.onkeypress(player_1.move_right, "d")
 wn.onkeypress(player_1.move_up, "w")
 wn.onkeypress(player_1.move_down, "s")
 
-
 while True:
     wn.update()
     pen.clear()
@@ -247,9 +244,6 @@ while True:
         sprite.border_check()
         sprite.move()
     
-    for goal in goals:
-        goal.render(pen)
-        
     if goal_player_1.is_aabb_collision(puck):
         score_player_2 += 1
         os.system("afplay goalsound.wav&")
@@ -266,11 +260,10 @@ while True:
         game.update_text("PLAYER   1'S   MOVE")
         time.sleep(2)
         game.next_round()
- 
-
+        
     for goal in goals:
         goal.render(pen)
-    
+
     for player in players:
         if player.is_distance_collision(puck):
             if abs(player.dx) > 1:
@@ -286,7 +279,8 @@ while True:
                 puck.dy = 1
             else:
                 puck.dy = -1
-                
+    
+    
     if score_player_1 == 5:
         os.system("afplay victory.wav&")
         score_pen.clear()
