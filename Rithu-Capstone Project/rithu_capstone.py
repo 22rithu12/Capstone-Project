@@ -244,6 +244,9 @@ while True:
         sprite.border_check()
         sprite.move()
     
+    for goal in goals:
+        goal.render(pen)
+    
     if goal_player_1.is_aabb_collision(puck):
         score_player_2 += 1
         os.system("afplay goalsound.wav&")
@@ -261,9 +264,6 @@ while True:
         time.sleep(2)
         game.next_round()
         
-    for goal in goals:
-        goal.render(pen)
-
     for player in players:
         if player.is_distance_collision(puck):
             if abs(player.dx) > 1:
