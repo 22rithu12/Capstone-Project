@@ -242,9 +242,6 @@ while True:
     pen.clear()
     game.render_border(pen)
     
-    for goal in goals:
-        goal.render(pen)
-    
     for sprite in sprites:
         sprite.render(pen)
         sprite.border_check()
