@@ -210,8 +210,8 @@ player_2 = Player(250 , 0, "player2.gif", "light green", 95, 95)
 
 puck = Puck(0 , 0, "puck.gif", "red", 20, 20)
 
-goal_player_1 = Goal(-320, 0, "goal1.gif", "saddlebrown", 30, 70)
-goal_player_2 = Goal(322, 0, "goal2.gif", "saddlebrown", 30, 70)
+goal_player_1 = Goal(-320, 0, "goal1.gif", "saddlebrown", 30, 75)
+goal_player_2 = Goal(322, 0, "goal2.gif", "saddlebrown", 30, 75)
 
 
 sprites = [player_1, player_2, puck]
