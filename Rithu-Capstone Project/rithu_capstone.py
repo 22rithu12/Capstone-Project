@@ -90,11 +90,6 @@ class Sprite():
         self.thrust = 0
         self.friction = 0.98
     
-    def accelerate(self):
-        h = self.heading() 
-        self.dx += math.cos(h*math.pi/180)*self.thrust
-        self.dy += math.sin(h*math.pi/180)*self.thrust
-        
     def render(self, pen):
         pen.goto(self.x, self.y)
         pen.shape(self.shape)
